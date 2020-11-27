@@ -527,15 +527,6 @@ local args = {
 
 
 game:GetService("ReplicatedStorage").Network.Port1:FireServer(unpack(args))
-for i3,v3 in pairs(game:GetService("Players")[game.Players.LocalPlayer.Name].PlayerGui.Main.Frame.FrameYY.FrameXY.Pet.Pet.Frame:GetDescendants()) do
-    if tostring(v3) == "ID" then
-        if v3.Value <= 337 then
-            a = 0
-            for a = 1,100 do
-                a = a + 1
-                wait()
-                game:GetService("ReplicatedStorage").Network.Port1:FireServer("SellItem","Pet",a)
-                
 
             game:GetService("ReplicatedStorage").Network.Port1:FireServer("DeleteRarity","Uncommon")
 			game.ReplicatedStorage.Network.Port1:FireServer("DeleteRarity","Common")
@@ -576,11 +567,6 @@ end
 end
 end
 end
-end
-end
-end
-end
-
 else
 		u = false
 		PetFarm.Text = ""
@@ -675,9 +661,9 @@ TextLabel_16.BackgroundTransparency = 1.000
 TextLabel_16.Position = UDim2.new(0, 0, 0.751791716, 0)
 TextLabel_16.Size = UDim2.new(0, 152, 0, 20)
 TextLabel_16.Font = Enum.Font.SourceSans
-TextLabel_16.Text = "FastAttackBoss"
+TextLabel_16.Text = "FastAttackBoss/AutoUpgradeBossShop"
 TextLabel_16.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_16.TextSize = 14.000
+TextLabel_16.TextSize = 9.000
 local attack = false
 FastAttackBoss.Name = "FastAttackBoss"
 FastAttackBoss.Parent = TextLabel_16
@@ -724,6 +710,22 @@ FastAttackBoss.MouseButton1Down:Connect(function()
 				}
 
 				game:GetService("ReplicatedStorage").Network.Port1:FireServer(unpack(args))
+
+local args = {
+    [1] = "Purchase",
+    [2] = "BossPower",
+}
+
+game:GetService("ReplicatedStorage").Network.Port1:FireServer(unpack(args))
+
+
+local args = {
+    [1] = "Purchase",
+    [2] = "BossVitality",
+}
+
+game:GetService("ReplicatedStorage").Network.Port1:FireServer(unpack(args))
+
 			end
 			end)
 	else
